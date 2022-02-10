@@ -32,6 +32,7 @@
           />
         </div>
       </div>
+
       <div style="text-align: center; margin-top: 30px">
         <hr class="main-hr" />
         <button
@@ -63,6 +64,7 @@ export default {
     addField(fieldType) {
       fieldType.push({ food: "", price: "" });
     },
+
     removeField(fieldType) {
       fieldType.splice(0, 1);
     },
