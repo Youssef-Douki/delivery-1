@@ -18,15 +18,15 @@
       <form class="sign-up" action="#">
         <h2>Create login</h2>
         <div>Use your email for registration</div>
-        <input type="text" placeholder="Name" />
-        <input type="password" placeholder="Password" />
-          <input type="text" placeholder="Email" />
-        <router-link to="/menu"><button>Sign Up</button></router-link>
+        <input v-model="name" type="text" placeholder="Name" />
+        <input v-model="password" type="password" placeholder="Password" />
+          <input v-model="picture"  type="text"  />
+        <router-link  :to="{name:path}"><button @click="signup">Sign Up</button></router-link>
       </form>
       <form class="sign-in" action="#">
         <h2>Log In</h2>
         <div>Use your account</div>
-        <input type="email" placeholder="Email" />
+        <input type="text" placeholder="Name" />
         <input type="password" placeholder="Password" />
         <a href="#">Forgot your password?</a>
         <router-link to="/menu"><button>Log in</button></router-link>
@@ -36,12 +36,29 @@
 </template>
 
 <script>
-
+import axios from 'axios'
   export default {
     data: () => {
       return {
+        name: "",
+        password:"",
+        picture:"",
+        path : "Login",
         signUp: false
       }
+    },methods:{
+      signup() {
+        const admin = {name : this.name ,password : this.password,picture : this.picture }
+            // POST request using axios with error handling
+        axios.post("http://localhost:5000/admin/signup",admin)
+            .then(response => response.data == "nice" ? this.path = "menu" : this.path = "Login")
+          .catch(error => {
+          this.errorMessage = error.message;
+          console.error("There was an error!", error);
+           });
+        
+  
+}
     }
   }
 </script>
