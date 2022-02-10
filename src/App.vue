@@ -25,4 +25,10 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+body {
+  /* background-image: url("../public/img1.jpg"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 </style>

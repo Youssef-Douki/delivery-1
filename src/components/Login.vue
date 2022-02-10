@@ -1,5 +1,5 @@
 <template>
-  <article>
+  <article class="cont">
     <div class="container" :class="{'sign-up-active' : signUp}">
       <div class="overlay-container">
         <div class="overlay">
@@ -64,6 +64,11 @@ import axios from 'axios'
 </script>
 
 <style lang="scss" scoped>
+.cont{
+      position: absolute;
+    margin-left: 30%;
+    margin-right: 30%;
+}
   .container {
     position: relative;
     width: 768px;
