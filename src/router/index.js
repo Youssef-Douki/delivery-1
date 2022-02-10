@@ -11,7 +11,7 @@ const routes = [
   },
   {
     path: '/menu',
-    name: 'About',
+    name: 'menu',
     component: Cardrestaurant
   }, {
     path: '/menu/:id',
